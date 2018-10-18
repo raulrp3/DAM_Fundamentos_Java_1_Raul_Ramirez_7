@@ -35,6 +35,7 @@ public class Main {
         primerNumero = validarNumero(sc);
         System.out.print("Introduce un segundo número: ");
         segundoNumero = validarNumero(sc);
+        sc.close();
         System.out.println(comprobarNumero(primerNumero, segundoNumero));
     }
 }
