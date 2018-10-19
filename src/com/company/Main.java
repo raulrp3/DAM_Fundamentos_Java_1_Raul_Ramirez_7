@@ -3,14 +3,28 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    public static int validarNumero(Scanner sc) {
-        int numeroValidado;
-        while (!sc.hasNextInt()) {
-            System.out.print("¡Introduce un valor numérico entero! ");
-            sc.next();
+    public static double validador(int opcion) {
+        double validado = 0;
+        Scanner sc = new Scanner(System.in);
+        switch (opcion) {
+            case 0: {
+                while (!sc.hasNextInt()) {
+                    System.out.print("¡Por favor introduce un número entero! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
+            case 1: {
+                while (!sc.hasNextDouble()) {
+                    System.out.print("¡Por favor introduce un número decimal! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
         }
-        numeroValidado = sc.nextInt();
-        return numeroValidado;
+        return validado;
     }
 
     public static String comprobarNumero(int primerNumero, int segundoNumero) {
@@ -32,9 +46,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("¡Vamos a comprobar que número es mayor!");
         System.out.print("Introduce un primer número: ");
-        primerNumero = validarNumero(sc);
+        primerNumero = (int)validador(0);
         System.out.print("Introduce un segundo número: ");
-        segundoNumero = validarNumero(sc);
+        segundoNumero = (int)validador(0);
         sc.close();
         System.out.println(comprobarNumero(primerNumero, segundoNumero));
     }
